@@ -1,8 +1,14 @@
 name: Deploy portafolio to GitHub Pages
 
+# En espera: el despliegue automático por push está desactivado a propósito
+# porque la cuenta de GitHub tiene Actions bloqueado por un problema de
+# facturación (ver commits de julio 2026). Mientras tanto, el sitio se
+# construye en local y se publica a mano en la rama `gh-pages`, con Pages
+# configurado en modo "legacy" (branch: gh-pages) en vez de "workflow".
+# Una vez resuelta la facturación: cambiar `on:` de vuelta a incluir
+# `push: branches: [main]`, y volver a configurar Pages con
+# `gh api -X POST repos/MartinezAaron/portafolio/pages -f build_type=workflow`.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
