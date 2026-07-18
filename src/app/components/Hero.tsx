@@ -78,22 +78,13 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-white">
-            Hola, soy{" "}
-            <span className="bg-gradient-to-r from-[#E8354A] to-[#F07080] bg-clip-text text-transparent">
-              Martinez, Aarón
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-white leading-tight">
+            Portafolio
+            <span className="block bg-gradient-to-r from-[#E8354A] to-[#F07080] bg-clip-text text-transparent">
+              Automatización y Desarrollo Backend
             </span>
           </h1>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl sm:text-2xl text-gray-300 mb-8"
-        >
-          Estudiante de PNF Informática | Automatización y Desarrollo Backend
-        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
