@@ -29,7 +29,7 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="text-xl font-semibold text-white"
           >
-            Portfolio
+            Portafolio
           </motion.div>
 
           {/* Desktop Navigation */}

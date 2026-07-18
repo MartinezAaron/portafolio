@@ -65,14 +65,23 @@ export function Hero() {
       {/* Content */}
       <div className="relative max-w-4xl mx-auto text-center">
         <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 bg-[#E8354A]/10 border border-[#E8354A]/30 text-[#F07080] rounded-full px-5 py-1.5 mb-8 text-xs font-semibold tracking-wide uppercase"
+        >
+          Ingeniería en Informática · UNETI
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-5xl sm:text-6xl lg:text-7xl mb-6 text-white">
-            Bienvenido, creado por...{" "}
+            Hola, soy{" "}
             <span className="bg-gradient-to-r from-[#E8354A] to-[#F07080] bg-clip-text text-transparent">
-              Martinez, Aarón.
+              Martinez, Aarón
             </span>
           </h1>
         </motion.div>
