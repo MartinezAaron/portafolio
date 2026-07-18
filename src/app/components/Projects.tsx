@@ -24,6 +24,7 @@ interface ViewItem {
 interface DownloadItem {
   label: string;
   url: string;
+  filename: string;
   icon: "pdf" | "video";
 }
 
@@ -49,8 +50,8 @@ const projects: Project[] = [
       { label: "Ver Video", url: comparativaVideo, type: "video" },
     ],
     downloadLinks: [
-      { label: "Descargar PDF", url: "https://mega.nz/file/lkYEHYzC#C2dDsBX9NBsqjVeh5Srd_JWjxtuaLY3AP1sLwtPxypk", icon: "pdf" },
-      { label: "Descargar Video", url: "https://mega.nz/file/k4gX1DaB#gJLM8LSagePfo-yFLZngjvrZXJtfSmsLjuAY8CrViGw", icon: "video" },
+      { label: "Descargar PDF", url: comparativaPdf, filename: "Comparativa_Computadoras_Modernas_Cuanticas.pdf", icon: "pdf" },
+      { label: "Descargar Video", url: comparativaVideo, filename: "Comparativa_Computadoras_Modernas_Cuanticas.mp4", icon: "video" },
     ],
     learnings: [
       "Dos formas distintas de procesar información: comprendí que mientras las computadoras modernas trabajan de forma secuencial con bits (0 y 1), la computación cuántica utiliza cúbits, evaluando múltiples soluciones al mismo tiempo gracias a las leyes de la física cuántica.",
@@ -69,7 +70,7 @@ const projects: Project[] = [
       { label: "Ver PDF", url: groverPdf, type: "pdf" },
     ],
     downloadLinks: [
-      { label: "Descargar PDF", url: "https://mega.nz/file/4sQiTQzY#3Tr_Bs-1dGCH4EQonXcKdVSLs81XYYxURCZMyWQ__nc", icon: "pdf" },
+      { label: "Descargar PDF", url: groverPdf, filename: "Infografia_Algoritmo_de_Grover.pdf", icon: "pdf" },
     ],
     learnings: [
       "Búsqueda simultánea: a diferencia del método clásico que revisa elemento por elemento, este algoritmo evalúa todos los datos a la vez, reduciendo drásticamente el número de intentos necesarios.",
@@ -88,7 +89,7 @@ const projects: Project[] = [
       { label: "Ver PDF", url: bordeIaPdf, type: "pdf" },
     ],
     downloadLinks: [
-      { label: "Descargar PDF", url: "https://mega.nz/file/40xxwbbB#Zno_qgWMweZaK9QEbtrFPr5WXKa92imrzBHnHEjYLpY", icon: "pdf" },
+      { label: "Descargar PDF", url: bordeIaPdf, filename: "Hacia_donde_corremos_Arquitectura_Computador.pdf", icon: "pdf" },
     ],
     learnings: [
       "La migración hacia el «borde»: estamos pasando de procesar todo en una nube lejana a hacerlo en los mismos dispositivos finales (teléfonos, autos, equipos médicos) para evitar retrasos en el tiempo de respuesta.",
@@ -108,7 +109,7 @@ const projects: Project[] = [
       /* { label: "Ver en Canva", url: "https://canva.link/8g22tkptanay3ub", type: "canva" },*/
     ],
     downloadLinks: [
-      { label: "Descargar PDF", url: "https://mega.nz/file/g5BGgbKQ#jSMmqBf6tQicdDugdfdxLHnrAdiEytM3aJ9qbNh7tUc", icon: "pdf" },
+      { label: "Descargar PDF", url: tablaPdf, filename: "Tabla_Herramientas_Arquitectura_Computador.pdf", icon: "pdf" },
     ],
     learnings: [
       "El equilibrio entre hardware y software: el mantenimiento y la ingeniería de equipos requieren dos mundos — herramientas físicas para ensamblar y medir, y programas especializados para simular y diagnosticar el comportamiento del procesador.",
@@ -127,7 +128,7 @@ const projects: Project[] = [
       { label: "Ver PDF", url: cpuPdf, type: "pdf" },
     ],
     downloadLinks: [
-      { label: "Descargar PDF", url: cpuPdf, icon: "pdf" },
+      { label: "Descargar PDF", url: cpuPdf, filename: "Identificacion_de_la_CPU.pdf", icon: "pdf" },
     ],
     learnings: [
       /* TODO: revisar y ajustar este borrador antes de publicar */
@@ -416,8 +417,7 @@ function ProjectCard({ project }: { project: Project }) {
             {project.downloadLinks.length === 1 ? (
               <a
                 href={project.downloadLinks[0].url}
-                target="_blank"
-                rel="noopener noreferrer"
+                download={project.downloadLinks[0].filename}
                 className={`${btnBase} bg-gray-700 hover:bg-gray-600 text-gray-200`}
               >
                 <Download size={13} />
@@ -448,8 +448,7 @@ function ProjectCard({ project }: { project: Project }) {
                           <a
                             key={dl.label}
                             href={dl.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            download={dl.filename}
                             onClick={() => setDlOpen(false)}
                             className="flex items-center gap-2.5 px-4 py-2.5 hover:bg-gray-800 text-gray-300 hover:text-white text-xs transition-colors"
                           >
