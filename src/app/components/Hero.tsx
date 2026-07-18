@@ -99,10 +99,20 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg text-gray-400 mb-16 max-w-2xl mx-auto"
+          className="text-lg text-gray-400 mb-2 max-w-2xl mx-auto"
         >
           Este portafolio presenta mi trabajo académico y profesional en desarrollo,
           demostrando competencias técnicas y capacidades de implementación.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-sm text-gray-500 mb-16 max-w-xl mx-auto"
+        >
+          Martinez, Aarón · C.I. V-27.451.087 · Universidad Nacional Experimental de las
+          Telecomunicaciones e Informática (UNETI)
         </motion.p>
 
         <motion.div
